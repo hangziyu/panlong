@@ -1,0 +1,15 @@
+package com.ccnuai.panlong.controller;
+
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@Slf4j
+@RestController
+@RequestMapping("/question")
+public class QuestionController {
+
+
+
+}
