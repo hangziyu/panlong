@@ -12,4 +12,11 @@
             #{id}
         </foreach>
     </select>
+
+    <select id="random" resultType="com.ccnuai.panlong.pojo.entity.Question">
+        SELECT * FROM question
+        WHERE chapter_id = #{chapterId}
+        ORDER BY RAND()
+        LIMIT 5
+    </select>
 </mapper>
