@@ -1,6 +1,6 @@
-package config;
+package com.ccnuai.panlong.config;
 
-import interceptor.LoginInterceptor;
+import com.ccnuai.panlong.interceptor.LoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

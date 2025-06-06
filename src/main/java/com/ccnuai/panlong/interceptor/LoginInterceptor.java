@@ -1,4 +1,4 @@
-package interceptor;
+package com.ccnuai.panlong.interceptor;
 
 import com.ccnuai.panlong.utils.JwtUtil;
 import jakarta.servlet.http.HttpServletRequest;
