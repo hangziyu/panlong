@@ -10,20 +10,21 @@ import org.springframework.web.servlet.HandlerInterceptor;
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (HttpMethod.OPTIONS.toString().equals(request.getMethod())){
-            System.out.println("OPTIONS请求");
-            return true;
-        }
-        //获取token
-        String token = request.getHeader("token");
-        //验证
-        if (JwtUtil.verify(token)){
-            return true;
-        }else {
-            response.setStatus(401);
-            return false;
-        }
-    }
+    //todo 登录拦截器(暂时关闭了)
+//    @Override
+//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+//        if (HttpMethod.OPTIONS.toString().equals(request.getMethod())){
+//            System.out.println("OPTIONS请求");
+//            return true;
+//        }
+//        //获取token
+//        String token = request.getHeader("token");
+//        //验证
+//        if (JwtUtil.verify(token)){
+//            return true;
+//        }else {
+//            response.setStatus(401);
+//            return false;
+//        }
+//    }
 }
