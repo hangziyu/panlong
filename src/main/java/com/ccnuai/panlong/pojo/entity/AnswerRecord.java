@@ -1,5 +1,6 @@
 package com.ccnuai.panlong.pojo.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,20 +11,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AnswerRecord {
-
-    private Long id;// 主键id
-
-    private Long userId;// 用户ID
-
-    private String questionId;// 题目ID
-
-    private String userAnswer;// 用户答案
-
+    @JsonProperty("user_answer")
+    private String userAnswer;// 用户的回答
+    @JsonProperty("is_correct")
     private Boolean isCorrect;// 是否正确
-
-    private String masteryLevel;// 掌握程度
-
-    private String teachingHistory; // JSON 字符串，建议使用 TEXT 存储
-
-    private LocalDateTime createTime;// 创建时间
+    @JsonProperty("correct_answer")
+    private String correctAnswer;// 正确的回答
+    @JsonProperty("timestamp")
+    private String timestamp;// 时间戳
+    @JsonProperty("question_content")
+    private String questionContent;// 问题内容
 }

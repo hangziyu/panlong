@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         //
         String nameId = "0";
         // 注册逻辑
-        UserDTO user = new UserDTO(username, password, nameId);
+        UserDTO user = new UserDTO(username, password, nameId, null);
         // 保存用户信息到数据库
         userMapper.insert(user);
 

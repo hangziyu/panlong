@@ -29,6 +29,12 @@ public class UserController {
         return Result.ok();
     }
 
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @return
+     */
     @GetMapping("/login")
     public Result login(@RequestParam String username, String password) {
         log.info("登录");
