@@ -30,16 +30,4 @@ public class BookController {
         return Result.ok(list);
     }
 
-    /**
-     * 查询章节
-     * @param bookId
-     * @return
-     */
-    @PostMapping("/querychapter")
-    public Result queryChapter(@RequestParam String bookId){
-        log.info("查询章节");
-        List<Chapter> list = bookService.queryChapterById(bookId);
-        log.info("查询章节成功");
-        return Result.ok(list);
-    }
 }

@@ -51,6 +51,13 @@ public class UserController {
         return Result.ok(token);
     }
 
+    /**
+     * 绑定学生
+     * @param studentNumber
+     * @param userId
+     * @param name
+     * @return
+     */
     @PutMapping("/bind")
     public Result bind(@RequestParam String studentNumber,@RequestParam String userId,@RequestParam String name){
         log.info("绑定");

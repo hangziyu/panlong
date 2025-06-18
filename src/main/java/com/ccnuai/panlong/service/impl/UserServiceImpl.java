@@ -35,6 +35,12 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @return
+     */
     @Override
     public String login(String username, String password) {
         // 登录逻辑

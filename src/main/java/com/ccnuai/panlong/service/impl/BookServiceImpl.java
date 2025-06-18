@@ -23,30 +23,17 @@ public class BookServiceImpl implements BookService {
     private ChapterMapper chapterMapper;
 
     /**
-     * 查询书籍
+     * 查询所有书籍
      * @return
      */
     @Override
     public List<Book> query() {
 
-        List<Book> list = bookMapper.query();
-        return list;
+        return bookMapper.query();
     }
 
-    /**
-     * 查询章节
-     * @return
-     */
-    @Override
-    public List<Chapter> queryChapterById(String bookId) {
-        if (bookId != null) {
-           List<Chapter> allChapter = chapterMapper.queryChapterById(bookId);
 
-           return buildTree(allChapter);
-        }
 
-        return List.of();
-    }
 
     /**
      * 构建章节树

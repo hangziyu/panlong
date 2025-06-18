@@ -18,10 +18,9 @@ public class Chapter {
     private Integer id;//章节id
     private Integer bookId;//书籍id
     private String name;//章节名称
-    private String chapterPath;//章节路径
+    private String chapterNumber;//章节路径
     private Integer parentId;//父章节id
-    private Integer level;//章节层级
-    private Integer sortOrder;//排序顺序
+    private String title;//标题;
 
     private List<Chapter> children = new ArrayList<>();//子章节列表
 }

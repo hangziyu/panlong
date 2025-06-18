@@ -8,6 +8,7 @@ import com.ccnuai.panlong.service.QuestionService;
 
 import com.ccnuai.panlong.utils.CheckAnswerExerciseSSEClient;
 import com.ccnuai.panlong.utils.RandomExerciseSSEClient;
+import com.ccnuai.panlong.utils.TeachQuestionSSEClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -112,6 +113,32 @@ public class QuestionController {
         QuestionHistoryVO history = questionService.questionHistory();
         log.info("获取题目历史成功");
         return Result.ok(history);
+    }
+
+    /**
+     * 教学对话
+     * @param request
+     * @return
+     */
+    @PostMapping("/teach")
+    public SseEmitter teach(@RequestBody TeachQuestionDTO request) {
+        log.info("教学对话");
+        SseEmitter emitter = new SseEmitter(0L); // 0 表示不超时
+        new Thread(() -> {
+            try {
+                // 调用你的SSE客户端，传入emitter进行事件推送
+                new TeachQuestionSSEClient().startSSE(request,emitter);
+            } catch (Exception e) {
+                try {
+                    emitter.send(SseEmitter.event().name("error").data(e.getMessage()));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                } finally {
+                    emitter.completeWithError(e);
+                }
+            }
+        }).start();
+        return emitter;
     }
 
 
